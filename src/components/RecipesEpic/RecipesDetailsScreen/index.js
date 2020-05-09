@@ -10,6 +10,7 @@ const RecipesDetailsScreen = ({ route, navigation }) => {
     const dispatch = useDispatch();
 
     const recipe = useSelector(getSelectedRecipe);
+    console.log(recipe);
 
     useEffect(() => {
         fetchSelectedRecipe(dispatch, id);

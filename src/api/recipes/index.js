@@ -29,6 +29,7 @@ export const fetchSelectedRecipe = async (dispatch, recipeId) => {
                 apiKey,
             }
         });
+        console.log(response.data);
         dispatch(fetchSelectedRecipeAction(response.data));
     } catch (e) {
         console.error('error fetch selected recipe', e);
