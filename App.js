@@ -15,8 +15,8 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name='Recipes List' component={RecipesListScreen} />
-          <Stack.Screen name='Recipes Detail' component={RecipesDetailsScreen} />
+          <Stack.Screen name='RecipesList' component={RecipesListScreen} />
+          <Stack.Screen name='RecipeDetail' component={RecipesDetailsScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

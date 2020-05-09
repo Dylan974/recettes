@@ -1,10 +1,13 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 
-const RecipesDetailsScreen = () => {
+const RecipesDetailsScreen = ({ navigation }) => {
     return (
         <View>
             <Text>RecipesDetailsScreen</Text>
+            <Button title='Retour' onPress={() => {
+                navigation.goBack();
+            }} />
         </View>
     );
 }
