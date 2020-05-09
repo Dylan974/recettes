@@ -9,14 +9,14 @@ const MAX_PER_PAGE = 30;
 
 export const fetchRecipes = async (query) => {
     try {
-
+        console.log('fetch recipes');
         const response = await axios.get(ENDPOINT_RECIPES, {
             params: {
                 apiKey: apiKey,
                 number: MAX_PER_PAGE,
             }
         });
-
+        console.log('fetch recipes', response.data.results);
         const dispatch = useDispatch();
         dispatch(fetchRecipesAction(response.data.results));
     } catch (e) {
