@@ -23,14 +23,14 @@ export const fetchRecipes = async (dispatch, query) => {
 };
 
 export const fetchSelectedRecipe = async (dispatch, recipeId) => {
-    console.log(`${ENDPOINT_BASE}/${recipeId}/information`);
+    console.log('display endpoint', `${ENDPOINT_BASE}/${recipeId}/information`);
     try {
         const response = await axios.get(`${ENDPOINT_BASE}/${recipeId}/information`, {
             params: {
                 apiKey,
             }
         });
-        console.log(response.data);
+        console.log('fetch selected recipe', response.data);
         dispatch(fetchSelectedRecipeAction(response.data));
     } catch (e) {
         console.error('error fetch selected recipe', e);
