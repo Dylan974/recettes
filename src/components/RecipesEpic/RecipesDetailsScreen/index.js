@@ -23,6 +23,11 @@ const RecipesDetailsScreen = ({ route }) => {
                 <Image source={{ uri: recipe.image }} resizeMode='cover' style={styles.image}></Image>
             </View>
             <Text style={styles.title}>{recipe.title}</Text>
+            <ScrollView style={styles.containerIngredients}>
+                {recipe.extendedIngredients?.map(ing => {
+                    return <Text style={styles.ing}>{ing.name}</Text>;
+                })}
+            </ScrollView>
         </View>
     );
 }
