@@ -1,11 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
+import RecipesListScreen from './src/components/RecipesEpic/RecipiesListScreen';
+import RecipesDetailsScreen from './src/components/RecipesEpic/RecipesDetailsScreen';
+
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <Provider store={store}>
+      <View style={styles.container}>
+        <RecipesListScreen></RecipesListScreen>
+        <RecipesDetailsScreen />
+      </View>
+    </Provider>
   );
 }
 
