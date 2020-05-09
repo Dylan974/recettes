@@ -1,6 +1,6 @@
 const defaultState = [];
 
-export const recipesList = (state, action) => {
+export const recipesList = (state = defaultState, action) => {
     switch (action.type) {
         default:
             return state;
