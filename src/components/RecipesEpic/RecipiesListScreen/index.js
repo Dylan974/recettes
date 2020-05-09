@@ -21,6 +21,7 @@ const RecipesListScreen = ({ navigation }) => {
         <View style={styles.container}>
             <FlatList
                 data={recipes}
+                keyExtractor={item.id.toString()}
                 renderItem={_renderItem}
                 ItemSeparatorComponent={() => <View style={styles.separator} />}
             />
