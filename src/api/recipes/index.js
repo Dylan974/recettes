@@ -1,13 +1,11 @@
 import axios from 'axios';
-import { useDispatch } from 'react-redux';
-
 import { fetchRecipesAction } from '../../redux/actions';
 
 const ENDPOINT_RECIPES = 'https://api.spoonacular.com/recipes/search';
 const apiKey = '15fce38f989846d8af7d3b157b40f464';
 const MAX_PER_PAGE = 30;
 
-export const fetchRecipes = async (query) => {
+export const fetchRecipes = async (dispatch, query) => {
     try {
         console.log('fetch recipes');
         const response = await axios.get(ENDPOINT_RECIPES, {
@@ -17,7 +15,6 @@ export const fetchRecipes = async (query) => {
             }
         });
         console.log('fetch recipes', response.data.results);
-        const dispatch = useDispatch();
         dispatch(fetchRecipesAction(response.data.results));
     } catch (e) {
         console.error('error fetch recipes', e);

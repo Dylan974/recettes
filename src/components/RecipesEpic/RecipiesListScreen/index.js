@@ -1,14 +1,22 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { fetchRecipes } from '../../../api/recipes';
+import { useSelector, useDispatch } from 'react-redux';
+import { getRecipes } from '../../../redux/selectors';
+
 
 const RecipesListScreen = ({ navigation }) => {
+    const dispatch = useDispatch();
+    const recipes = useSelector(getRecipes);
     useEffect(() => {
-        fetchRecipes();
+        fetchRecipes(dipatch);
     }, []);
     return (
         <View style={styles.container}>
             <Text>RecipesListScreen</Text>
+            {recipes.map(recipe => {
+                return <Text>{recipe.title}</Text>;
+            })}
             <Button onPress={() => {
                 navigation.navigate('RecipeDetail');
             }} title='Voir Détails' />
