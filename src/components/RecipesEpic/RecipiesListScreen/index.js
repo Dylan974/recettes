@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
 import { fetchRecipes } from '../../../api/recipes';
 import { useSelector, useDispatch } from 'react-redux';
 import { getRecipes } from '../../../redux/selectors';
+import RecipeListItem from './recipeListItem';
 
 
 const RecipesListScreen = ({ navigation }) => {
@@ -11,12 +12,18 @@ const RecipesListScreen = ({ navigation }) => {
     useEffect(() => {
         fetchRecipes(dispatch);
     }, []);
+
+    const _renderItem = ({ item }) => {
+        return <RecipeListItem item={item} />;
+    }
+
     return (
         <View style={styles.container}>
-            <Text>RecipesListScreen</Text>
-            {recipes.map((recipe) => {
-                return <Text>{recipe.title}</Text>;
-            })}
+            <FlatList
+                data={recipes}
+                renderItem={_renderItem}
+                ItemSeparatorComponent={() => <View style={styles.separator} />}
+            />
             <Button onPress={() => {
                 navigation.navigate('RecipeDetail');
             }} title='Voir Détails' />
@@ -29,6 +36,10 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    separator: {
+        height: 3,
+        backgroundColor: 'grey',
     }
 });
 
