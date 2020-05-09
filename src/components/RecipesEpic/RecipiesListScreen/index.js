@@ -14,7 +14,7 @@ const RecipesListScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <Text>RecipesListScreen</Text>
-            {recipes.map(recipe => {
+            {recipes.map((recipe) => {
                 return <Text>{recipe.title}</Text>;
             })}
             <Button onPress={() => {
