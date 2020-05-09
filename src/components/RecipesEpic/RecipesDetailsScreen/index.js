@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSelectedRecipe } from '../../../redux/selectors';
 
 
-const RecipesDetailsScreen = ({ route, navigation }) => {
+const RecipesDetailsScreen = ({ route }) => {
     const { id } = route.params;
     const dispatch = useDispatch();
 
@@ -13,6 +13,7 @@ const RecipesDetailsScreen = ({ route, navigation }) => {
     console.log('screendetail', recipe);
 
     useEffect(() => {
+        console.log('useEffect', id);
         fetchSelectedRecipe(dispatch, id);
     }, []);
 

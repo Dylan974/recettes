@@ -3,7 +3,6 @@ import { fetchRecipesAction, fetchSelectedRecipeAction } from '../../redux/actio
 
 const ENDPOINT_BASE = 'https://api.spoonacular.com/recipes';
 const ENDPOINT_RECIPES = ENDPOINT_BASE + '/search';
-const ENDPOINT_RECIPE_INFO = '/{id}/information';
 
 const apiKey = '15fce38f989846d8af7d3b157b40f464';
 const MAX_PER_PAGE = 30;
