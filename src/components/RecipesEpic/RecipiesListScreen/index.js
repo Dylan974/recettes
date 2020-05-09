@@ -9,7 +9,7 @@ const RecipesListScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const recipes = useSelector(getRecipes);
     useEffect(() => {
-        fetchRecipes(dipatch);
+        fetchRecipes(dispatch);
     }, []);
     return (
         <View style={styles.container}>
